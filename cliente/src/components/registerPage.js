@@ -13,7 +13,6 @@ export default function RegisterPage() {
         email: '',
         password: ''
     })
-
     const detectarCambio = (event) => {
         const {name, value} = event.target
         setData(prevState => ({
