@@ -48,7 +48,7 @@ export default function LoginPage() {
                     <label>CONTRASEÑA</label>
                     <input type='password' name='password' value={data.password} onChange={detectarCambio}/>
                     {error && <div className={styles.errorMessage}>{error}</div>}
-                    <button type='submit'>Iniciar sesión</button>
+                    <button type='submit' disabled={isButtonDisabled}>Iniciar sesión</button>
                     <Link to='/register'>Registrate aquí</Link>
                 </form>
             </div>
