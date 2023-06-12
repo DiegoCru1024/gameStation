@@ -26,7 +26,10 @@ export default function LoginPage() {
         try {
             setButtonDisabled(true)
             const url = 'https://gamestation-backend.onrender.com/login'
-            const response = await axios.post(url, data)
+            const response = await axios.post(url, {
+                ...data,
+                username: data.username.toLowerCase()
+            })
             console.log('Respuesta:', response)
             localStorage.setItem('user', JSON.stringify(response.data.userData))
             navigate('/')
