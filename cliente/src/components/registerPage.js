@@ -26,7 +26,7 @@ export default function RegisterPage() {
         e.preventDefault()
         try {
             setButtonDisabled(true)
-            const url = 'http://localhost:5000/register';
+            const url = 'https://gamestation-backend.onrender.com/register';
             const response = await axios.post(url, data)
             console.log('Respuesta:', response)
             navigate('/login')
