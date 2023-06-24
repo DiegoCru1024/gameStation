@@ -75,13 +75,16 @@ export default function SearchPage() {
                     <div className={styles.searchResults}>
                         {data.map((app) => (
                             <div className={styles.searchItem} key={app.steam_appid.toString()}>
-                                <img src={app.header_image.toString()} alt='img'></img>
+                                <img src={app.header_image.toString()} alt='img'/>
                                 <div className={styles.searchItemInfo}>
                                     <p>{app.name}</p>
                                     <p>{app.release_date.date}</p>
-                                    <p>A</p>
+                                    <p>
+                                        {app.price_overview ? app.price_overview.final_formatted : '-'}
+                                    </p>
                                 </div>
                             </div>
+
                         ))}
                     </div>
 
