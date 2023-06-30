@@ -12,7 +12,7 @@ export default function RegisterPage() {
     const [data, setData] = useState({
         username: '',
         email: '',
-        password: ''
+        password: '',
     })
     const detectarCambio = (event) => {
         const {name, value} = event.target

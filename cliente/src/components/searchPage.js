@@ -74,7 +74,7 @@ export default function SearchPage() {
 
                     <div className={styles.searchResults}>
                         {data.map((app) => (
-                            <div className={styles.searchItem} key={app.steam_appid.toString()}>
+                            <Link to={`/appInfo?appid=${app.steam_appid}`} className={styles.searchItem} key={app.steam_appid.toString()}>
                                 <img src={app.header_image.toString()} alt='img'/>
                                 <div className={styles.searchItemInfo}>
                                     <p>{app.name}</p>
@@ -83,7 +83,7 @@ export default function SearchPage() {
                                         {app.price_overview ? app.price_overview.final_formatted : '-'}
                                     </p>
                                 </div>
-                            </div>
+                            </Link>
 
                         ))}
                     </div>
