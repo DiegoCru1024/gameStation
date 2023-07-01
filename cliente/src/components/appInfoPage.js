@@ -50,8 +50,9 @@ export default function AppInfoPage() {
                                 <img src={images?.[0]?.path_full} alt='thumbnail'/>
                             </div>
                             <div className={styles.appHeaderText}>
-                                <img src={appData.header_image}/>
+                                <img src={appData.header_image} alt='header'/>
                                 <p>{appData.short_description}</p>
+                                <button className={styles.wishList}>Añadir a Lista de Deseados</button>
                             </div>
                         </div>
                     </div>
