@@ -6,6 +6,7 @@ import LoginPage from "./components/loginPage";
 import RegisterPage from "./components/registerPage";
 import SearchPage from "./components/searchPage";
 import AppInfoPage from "./components/appInfoPage";
+import LibraryPage from "./components/libraryPage";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/community" element={<CommunityPage/>}/>
+                <Route path="/gamelibrary" element={<LibraryPage/>}/>
                 <Route path="/profile" element={<ProfilePage/>}/>
                 <Route path="/search" element={<SearchPage/>}/>
                 <Route path="/appInfo" element={<AppInfoPage/>}/>
