@@ -30,13 +30,17 @@ class wishListClass {
 
         const nuevoNodo = new Nodo(elemento);
 
-        if (!this.cabeza) {
+        if (!this.cabeza || itemID <= this.cabeza.elemento.itemID) {
+            nuevoNodo.siguiente = this.cabeza;
             this.cabeza = nuevoNodo;
         } else {
             let nodoActual = this.cabeza;
-            while (nodoActual.siguiente) {
+
+            while (nodoActual.siguiente && itemID > nodoActual.siguiente.elemento.itemID) {
                 nodoActual = nodoActual.siguiente;
             }
+
+            nuevoNodo.siguiente = nodoActual.siguiente;
             nodoActual.siguiente = nuevoNodo;
         }
 
@@ -44,14 +48,51 @@ class wishListClass {
     }
 
     buscarElemento(itemID) {
-        let nodoActual = this.cabeza;
-        while (nodoActual) {
-            if (nodoActual.elemento.itemID === itemID) {
-                return nodoActual.elemento;
+        let inicio = 0;
+        let fin = this.size() - 1;
+
+        while (inicio <= fin) {
+            const medio = Math.floor((inicio + fin) / 2);
+            const nodoMedio = this.obtenerNodo(medio);
+
+            if (nodoMedio.elemento.itemID === itemID) {
+                return nodoMedio.elemento;
+            } else if (nodoMedio.elemento.itemID < itemID) {
+                inicio = medio + 1;
+            } else {
+                fin = medio - 1;
             }
+        }
+
+        return null;
+    }
+
+    size() {
+        let count = 0;
+        let nodoActual = this.cabeza;
+
+        while (nodoActual) {
+            count++;
             nodoActual = nodoActual.siguiente;
         }
-        return null;
+
+        return count;
+    }
+
+    obtenerNodo(indice) {
+        if (indice < 0 || indice >= this.size()) {
+            return null;
+        }
+
+        let count = 0;
+        let nodoActual = this.cabeza;
+
+        while (count < indice) {
+            count++;
+            nodoActual = nodoActual.siguiente;
+        }
+
+        return nodoActual;
     }
 
     eliminarElemento(itemID) {

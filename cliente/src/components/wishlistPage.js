@@ -40,7 +40,22 @@ export default function WishPage() {
     };
 
     const compareByPrice = (a, b) => {
-        return a.itemPriceData.final - b.itemPriceData.final;
+        const priceA = a.itemPriceData?.final;
+        const priceB = b.itemPriceData?.final;
+
+        if (priceA === undefined && priceB === undefined) {
+            return 0;
+        }
+
+        if (priceA === undefined) {
+            return 1;
+        }
+
+        if (priceB === undefined) {
+            return -1;
+        }
+
+        return priceA - priceB;
     };
 
     let sortedList = [...filteredList];
@@ -91,7 +106,7 @@ export default function WishPage() {
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
                         <select value={selectedFilter} onChange={handleOptionChange}>
-                            <option value="preferencia">Ordenar por: Preferencia</option>
+                            <option value="preferencia">Ordenar por: Defecto</option>
                             <option value="nombre">Ordenar por: Nombre</option>
                             <option value="precio">Ordenar por: Precio</option>
                             <option value="fecha">Ordenar por: Fecha de Lanzamiento</option>
