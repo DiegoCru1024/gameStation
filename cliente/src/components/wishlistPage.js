@@ -111,7 +111,7 @@ export default function WishPage() {
                                             <h2>{item.itemName}</h2>
                                             <div>
                                                 <p>Fecha de Lanzamiento: {item.itemReleaseDate.date}</p>
-                                                <p>Precio: {item.itemPriceData.final_formatted}</p>
+                                                <p>Precio: {item.itemPriceData.final_formatted || 'Coming soon...'}</p>
                                             </div>
                                         </div>
                                     </div>
