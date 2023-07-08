@@ -27,6 +27,10 @@ export default function StorePage() {
             <Header/>
             <div className={styles.storeContainer}>
                 <div className={styles.storeColumn}>
+                    <div className={styles.buttons}>
+                        <Link to='/wishlist'>Lista de Deseados</Link>
+                        <Link to='/cart'>Carrito de Compras</Link>
+                    </div>
                     <nav className={styles.navigation}>
                         <ul>
                             <li><Link to='/'>Tienda</Link></li>

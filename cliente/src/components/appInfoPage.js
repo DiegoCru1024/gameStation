@@ -4,10 +4,13 @@ import {useEffect, useState} from "react"
 import {API_URL} from "../config"
 import {useLocation, useNavigate} from "react-router-dom"
 import axios from "axios"
+import {addItem, saveCart} from "./dataStructures/cartStructure"
+import wishListClass from "./dataStructures/wishListStructure"
 
 export default function AppInfoPage() {
     const location = useLocation()
     const navigation = useNavigate()
+    const wishList = new wishListClass()
     const searchParams = new URLSearchParams(location.search)
     const appid = searchParams.get('appid')
     const [appData, setAppData] = useState({})
@@ -35,7 +38,28 @@ export default function AppInfoPage() {
     }, [appid, navigation])
 
     const addToCart = () => {
-        
+        addItem({
+            itemID: appData.steam_appid,
+            itemIMG: appData.header_image,
+            itemName: appData.name,
+            itemReleaseDate: appData.release_date,
+            itemPriceData: appData.price_overview,
+            itemScreenshots: appData.screenshots,
+            itemAbout: appData.about_the_game,
+            itemRequirements: appData.pc_requirements,
+            itemShortDescription: appData.short_description
+        })
+        saveCart()
+    }
+
+    const addToWish = () => {
+        wishList.agregarElemento({
+            itemID: appData.steam_appid,
+            itemIMG: appData.header_image,
+            itemName: appData.name,
+            itemReleaseDate: appData.release_date,
+            itemPriceData: appData.price_overview
+        })
     }
 
     return (
@@ -52,7 +76,8 @@ export default function AppInfoPage() {
                             <div className={styles.appHeaderText}>
                                 <img src={appData.header_image} alt='header'/>
                                 <p>{appData.short_description}</p>
-                                <button className={styles.wishList}>Añadir a Lista de Deseados</button>
+                                <button className={styles.wishList} onClick={addToWish}>Añadir a Lista de Deseados
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -105,3 +105,24 @@
 .heroContent p {
     color: white;
 }
+
+.buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons a:first-child{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    background: #7199a3;
+    padding: 5px;
+}
+
+.buttons a:last-child{
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    background: #769700;
+    padding: 5px;
+}

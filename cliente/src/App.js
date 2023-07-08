@@ -7,6 +7,8 @@ import RegisterPage from "./components/registerPage";
 import SearchPage from "./components/searchPage";
 import AppInfoPage from "./components/appInfoPage";
 import LibraryPage from "./components/libraryPage";
+import CartPage from "./components/cartPage";
+import WishPage from "./components/wishlistPage";
 
 function App() {
     return (
@@ -20,6 +22,8 @@ function App() {
                 <Route path="/profile" element={<ProfilePage/>}/>
                 <Route path="/search" element={<SearchPage/>}/>
                 <Route path="/appInfo" element={<AppInfoPage/>}/>
+                <Route path="/cart" element={<CartPage/>}/>
+                <Route path="/wishlist" element={<WishPage/>}/>
             </Routes>
         </BrowserRouter>
     );

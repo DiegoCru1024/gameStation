@@ -44,6 +44,7 @@ export default function ProfilePage() {
                             <p>{userData.description || 'No hay una descripción.'}</p>
                         </div>
                     </div>
+
                 </div>
             </div>
         </main>
